@@ -70,6 +70,7 @@ label section1:
 label section1question1:
     show mr_al_talk at custom_pos
     a "Question 1: which code correctly inserts element “score” into position “index”?"
+    hide mr_al_talk
     hide mr_al_neutral
     show mr_al_neutral at small
 
@@ -301,15 +302,20 @@ label section3:
 
 label section3question1:
     a "Question 1"
-    $ Answer_3_1 = renpy.input("Input your answer here", length = 64)
-    if Answer_3_1 == "Skibidi":
-        a "You've done it"
-        $ section3 += 1
-        jump section3
-    else:
-        a "That's not quite right!"
-        jump section3question1
-
+    menu:
+        "Answer 1":
+            a "That's not quite right!"
+            jump section3question1
+        "Answer 2":
+            a "That's not quite right!"
+            jump section3question1
+        "Answer 3":
+            a "That's not quite right!"
+            jump section3question1
+        "Answer 4":
+            a "Well done"
+            $ section3 += 1
+            jump section3
 label section3question2:
     a "Question 2"
     menu:
