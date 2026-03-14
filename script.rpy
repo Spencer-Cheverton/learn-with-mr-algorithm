@@ -64,26 +64,26 @@ label section1:
         jump intermission1
 
 label section1question1:
-    a "Question 1"
+    a "Question 1: which code correctly inserts element “score” into position “index”?"
     menu:
         "Answer 1":
-            a "Well Done"
+            a "That's right! Nice attention to detail."
             $ section1 += 1
             jump section1
         "Answer 2":
-            a "That's not quite right!"
+            a "Not quite; remember that “sizeof” returns the number of bytes the object takes up."
             jump section1question1
         "Answer 3":
-            a "That's not quite right!"
+            a "...hmm. Looks like you've got a malformed array there in the first line!"
             jump section1question1
         "Answer 4":
-            a "That's not quite right!"
+            a "Alan Please add details."
             jump section1question1
 
 label section1question2:
-    a "Question 2"
+    a "Question 2: Here is a Linked List implementation. What is the output of the following code?"
     $ Answer_1_2 = renpy.input("Input your answer here", length = 64)
-    if Answer_1_2 == "Skibidi":
+    if Answer_1_2 == ("28.0" or "28"):
         a "Good Job"
         $ section1 += 1
         jump section1
@@ -92,10 +92,10 @@ label section1question2:
         jump section1question2
 
 label section1question3:
-    a "Question 3"
+    a "Question 3: Type the name of the variable that causes a leak in this code:"
     $ Answer_1_3 = renpy.input("Input your answer here", length = 64)
-    if Answer_1_3 == "Skibidi":
-        a "You’ve done it"
+    if Answer_1_3 == "ptr2":
+        a "You’ve done it!"
         $ section1 += 1
         jump section1
     else:
@@ -103,20 +103,25 @@ label section1question3:
         jump section1question3
 
 label section1question4:
-    a "Question 4"
+    a "Question 4: Fill in the blank to pass this test:"
     $ Answer_1_4 = renpy.input("Input your answer here", length = 64)
-    if Answer_1_4 == "Skibidi":
-        a "Impressive"
+    python:
+        input_list = list(Answer_1_4)
+        if (input_list[0] % 2 == 1) and (my_list[1]) and (my_list[-1] % 5 == 4) and len(my_list > 4):
+            correct = True
+    if correct:
+        a "Impressive work!"
         $ section1 += 1
+        $ correct = False
         jump section1
     else:
         a "That's not quite right!"
         jump section1question4
 
 label section1question5:
-    a "Question 5"
+    a "Question 5: Enter the line number where this linked list implementation fails:"
     $ Answer_1_5 = renpy.input("Input your answer here", length = 64)
-    if Answer_1_5 == "Skibidi":
+    if Answer_1_5 == "11":
         a "Well Done"
         $ section1 += 1
         jump section1
@@ -128,7 +133,7 @@ label intermission1:
     a "How did you find the first topic?"
     menu:
         "It was really easy":
-            a "Well they'll only get harder from here on out, so make sure you're prepared!"
+            a "Well, they'll only get harder from here on out, so make sure you're prepared!"
 
         "It was super challenging":
             a "Hopefully you were able to learn from your mistakes" # something along these lines
