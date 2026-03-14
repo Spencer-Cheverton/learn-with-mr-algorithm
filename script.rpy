@@ -24,9 +24,12 @@ init python:
 # game starts here
 
 
-label closed:
-    scene background final
-
+transform custom_pos:
+    zoom 1.0
+    pos (0, 110)
+transform small:
+    zoom 0.5
+    pos(0, 1070)
 label start:
     scene background # set the background image
     init python:
@@ -36,7 +39,7 @@ label start:
     $ Name = renpy.input("Input a name here", length=32)
     g "Welcome [Name]."
 
-    show walter # mr algorithm appears
+    show mr_al_talk at custom_pos # mr algorithm appears
     a "Good day to you [Name]."
     a "Today we are going to learn all about Data Structures and Algorithms."
     a "Are you ready to learn?!"
@@ -48,6 +51,7 @@ label start:
             pass
 
 label section1:
+    show mr_al_neutral at custom_pos
     scene background # background may or may not differ depending on the current section
     # here something should indicate we moved to section 1 (image, not text)
     if section1 == 0:
@@ -64,23 +68,37 @@ label section1:
         jump intermission1
 
 label section1question1:
+    show mr_al_talk at custom_pos
     a "Question 1"
+    hide mr_al_neutral
+    show mr_al_neutral at small
+
     menu:
         "Answer 1":
+            hide mr_al_neutral
+            show mr_al_talk at custom_pos
             a "Well Done"
             $ section1 += 1
             jump section1
         "Answer 2":
+            hide mr_al_neutral
+            show mr_al_talk at custom_pos
             a "That's not quite right!"
             jump section1question1
         "Answer 3":
+            hide mr_al_neutral
+            show mr_al_talk at custom_pos
             a "That's not quite right!"
             jump section1question1
         "Answer 4":
+            hide mr_al_neutral
+            show mr_al_talk at custom_pos
             a "That's not quite right!"
             jump section1question1
 
 label section1question2:
+    hide mr_al_neutral
+    show mr_al_neutral at custom_pos
     a "Question 2"
     $ Answer_1_2 = renpy.input("Input your answer here", length = 64)
     if Answer_1_2 == "Skibidi":
@@ -92,6 +110,8 @@ label section1question2:
         jump section1question2
 
 label section1question3:
+    hide mr_al_neutral
+    show mr_al_neutral at custom_pos
     a "Question 3"
     $ Answer_1_3 = renpy.input("Input your answer here", length = 64)
     if Answer_1_3 == "Skibidi":
@@ -103,6 +123,8 @@ label section1question3:
         jump section1question3
 
 label section1question4:
+    hide mr_al_neutral
+    show mr_al_neutral at custom_pos
     a "Question 4"
     $ Answer_1_4 = renpy.input("Input your answer here", length = 64)
     if Answer_1_4 == "Skibidi":
@@ -114,6 +136,8 @@ label section1question4:
         jump section1question4
 
 label section1question5:
+    hide mr_al_neutral
+    show mr_al_neutral at custom_pos
     a "Question 5"
     $ Answer_1_5 = renpy.input("Input your answer here", length = 64)
     if Answer_1_5 == "Skibidi":
