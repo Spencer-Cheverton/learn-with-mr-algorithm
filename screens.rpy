@@ -135,7 +135,7 @@ style window:
     yalign gui.textbox_yalign
     ysize gui.textbox_height
 
-    background Image("gui/textbox.png", xalign=0.5, yalign=1.0)
+    background Image("images/textbox.png", xalign=0.5, yalign=1.0)
 
 style namebox:
     xpos gui.name_xpos
@@ -235,41 +235,12 @@ style choice_button_text is default:
 ## The quick menu is displayed in-game to provide easy access to the out-of-game
 ## menus.
 
-screen quick_menu():
 
-    ## Ensure this appears on top of other screens.
-    zorder 100
-
-    if quick_menu:
-
-        hbox:
-            style_prefix "quick"
-            style "quick_menu"
-
-            textbutton _("Back") action Rollback()
-            textbutton _("History") action ShowMenu('history')
-            textbutton _("Skip") action Skip() alternate Skip(fast=True, confirm=True)
-            textbutton _("Auto") action Preference("auto-forward", "toggle")
-            textbutton _("Save") action ShowMenu('save')
-            textbutton _("Q.Save") action QuickSave()
-            textbutton _("Q.Load") action QuickLoad()
-            textbutton _("Prefs") action ShowMenu('preferences')
 
 
 ## This code ensures that the quick_menu screen is displayed in-game, whenever
 ## the player has not explicitly hidden the interface.
-init python:
-    config.overlay_screens.append("quick_menu")
 
-default quick_menu = True
-
-style quick_menu is hbox
-style quick_button is default
-style quick_button_text is button_text
-
-style quick_menu:
-    xalign 0.5
-    yalign 1.0
 
 style quick_button:
     properties gui.button_properties("quick_button")
@@ -289,48 +260,40 @@ style quick_button_text:
 
 screen navigation():
 
-    vbox:
+    hbox xpos 0 ypos 2042:
         style_prefix "navigation"
 
-        xpos gui.navigation_xpos
-        yalign 0.5
+        #xpos gui.navigation_xpos
+        #yalign 0.5
 
-        spacing gui.navigation_spacing
+        #spacing gui.navigation_spacing
 
-        if main_menu:
+        # clicking on this icon starts the mr algorithm game
 
-            textbutton _("Start") action Start()
 
-        else:
+        # clicking on this icon quits the entire game
+        imagebutton:
+            xpos 15
+            idle "quit.png"
+            action Quit()
 
-            textbutton _("History") action ShowMenu("history")
+        imagebutton:
+            xpos 35
+            idle "back.png"
+            action Quit()
 
-            textbutton _("Save") action ShowMenu("save")
 
-        textbutton _("Load") action ShowMenu("load")
 
-        textbutton _("Preferences") action ShowMenu("preferences")
+    vbox xpos 30 ypos 100:
+        imagebutton:
+            xpos 30
+            idle "start icon.png"
+            action [ShowMenu("game"), Start()]
 
-        if _in_replay:
+        imagebutton:
+            ypos 70
+            idle "folder icon.png"
 
-            textbutton _("End Replay") action EndReplay(confirm=True)
-
-        elif not main_menu:
-
-            textbutton _("Main Menu") action MainMenu()
-
-        textbutton _("About") action ShowMenu("about")
-
-        if renpy.variant("pc") or (renpy.variant("web") and not renpy.variant("mobile")):
-
-            ## Help isn't necessary or relevant to mobile devices.
-            textbutton _("Help") action ShowMenu("help")
-
-        if renpy.variant("pc"):
-
-            ## The quit button is banned on iOS and unnecessary on Android and
-            ## Web.
-            textbutton _("Quit") action Quit(confirm=not main_menu)
 
 
 style navigation_button is gui_button
@@ -342,6 +305,32 @@ style navigation_button:
 
 style navigation_button_text:
     properties gui.text_properties("navigation_button")
+
+screen game():
+    zorder 100
+    #style_prefix "navigation"
+    hbox xpos 0 ypos 2042:
+
+        #xpos gui.navigation_xpos
+        #yalign 0.5
+
+        #spacing gui.navigation_spacing
+
+        # clicking on this icon starts the mr algorithm game
+
+
+        # clicking on this icon quits the entire game
+        imagebutton:
+            xpos 15
+            idle "quit.png"
+            action Quit()
+
+        imagebutton:
+            xpos 35
+            idle "back.png"
+            action [ShowMenu("main_menu")]
+init python:
+    config.overlay_screens.append("game")
 
 
 ## Main Menu screen ############################################################
@@ -358,23 +347,13 @@ screen main_menu():
     add gui.main_menu_background
 
     ## This empty frame darkens the main menu.
-    frame:
-        style "main_menu_frame"
+
 
     ## The use statement includes another screen inside this one. The actual
     ## contents of the main menu are in the navigation screen.
     use navigation
 
-    if gui.show_name:
 
-        vbox:
-            style "main_menu_vbox"
-
-            text "[config.name!t]":
-                style "main_menu_title"
-
-            text "[config.version]":
-                style "main_menu_version"
 
 
 style main_menu_frame is empty
@@ -387,7 +366,7 @@ style main_menu_frame:
     xsize 840
     yfill True
 
-    background "gui/overlay/main_menu.png"
+    background "images/background.png"
 
 style main_menu_vbox:
     xalign 1.0
@@ -503,7 +482,7 @@ style game_menu_outer_frame:
     bottom_padding 90
     top_padding 360
 
-    background "gui/overlay/game_menu.png"
+    background "images/background.png"
 
 style game_menu_navigation_frame:
     xsize 840
@@ -1519,21 +1498,7 @@ style pref_vbox:
 
 ## Since a mouse may not be present, we replace the quick menu with a version
 ## that uses fewer and bigger buttons that are easier to touch.
-screen quick_menu():
-    variant "touch"
 
-    zorder 100
-
-    if quick_menu:
-
-        hbox:
-            style "quick_menu"
-            style_prefix "quick"
-
-            textbutton _("Back") action Rollback()
-            textbutton _("Skip") action Skip() alternate Skip(fast=True, confirm=True)
-            textbutton _("Auto") action Preference("auto-forward", "toggle")
-            textbutton _("Menu") action ShowMenu()
 
 
 style window:

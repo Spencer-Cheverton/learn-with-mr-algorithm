@@ -57,13 +57,13 @@ define gui.interface_text_color = '#ffffff'
 ## Fonts and Font Sizes ########################################################
 
 ## The font used for in-game text.
-define gui.text_font = "DejaVuSans.ttf"
+define gui.text_font = "gui/Tahoma.ttf"
 
 ## The font used for character names.
-define gui.name_text_font = "DejaVuSans.ttf"
+define gui.name_text_font = "gui/Tahoma.ttf"
 
 ## The font used for out-of-game text.
-define gui.interface_text_font = "DejaVuSans.ttf"
+define gui.interface_text_font = "gui/Tahoma.ttf"
 
 ## The size of normal dialogue text.
 define gui.text_size = 66
@@ -87,8 +87,8 @@ define gui.title_text_size = 150
 ## Main and Game Menus #########################################################
 
 ## The images used for the main and game menus.
-define gui.main_menu_background = "gui/main_menu.png"
-define gui.game_menu_background = "gui/game_menu.png"
+define gui.main_menu_background = "images/background final.png"
+define gui.game_menu_background = "images/background final.png"
 
 
 ## Dialogue ####################################################################
@@ -101,12 +101,12 @@ define gui.textbox_height = 555
 
 ## The placement of the textbox vertically on the screen. 0.0 is the top, 0.5 is
 ## center, and 1.0 is the bottom.
-define gui.textbox_yalign = 1.0
+define gui.textbox_yalign = 0.925
 
 
 ## The placement of the speaking character's name, relative to the textbox.
 ## These can be a whole number of pixels from the left or top, or 0.5 to center.
-define gui.name_xpos = 720
+define gui.name_xpos = 110 # 720
 define gui.name_ypos = 0
 
 ## The horizontal alignment of the character's name. This can be 0.0 for left-
@@ -130,7 +130,7 @@ define gui.namebox_tile = False
 ## The placement of dialogue relative to the textbox. These can be a whole
 ## number of pixels relative to the left or top side of the textbox, or 0.5 to
 ## center.
-define gui.dialogue_xpos = 804
+define gui.dialogue_xpos = 120 # 804
 define gui.dialogue_ypos = 150
 
 ## The maximum width of dialogue text, in pixels.
@@ -441,7 +441,7 @@ init python:
 
         ## Adjust the location of the textbox.
         gui.textbox_height = 720
-        gui.name_xpos = 240
+        gui.name_xpos = 240 # 240
         gui.dialogue_xpos = 270
         gui.dialogue_width = 3300
 

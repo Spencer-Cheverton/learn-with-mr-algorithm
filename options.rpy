@@ -150,7 +150,7 @@ define config.save_directory = "LearnwithMrAlgorithm-1773488096"
 ##
 ## The icon displayed on the taskbar or dock.
 
-define config.window_icon = "gui/window_icon.png"
+define config.window_icon = "images/icon.png"
 
 
 ## Build configuration #########################################################
