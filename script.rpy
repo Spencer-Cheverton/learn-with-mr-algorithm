@@ -168,26 +168,27 @@ label section2:
         jump intermission2
 
 label section2question1:
-    a "Question 1"
+    a "Question 1: Which of these is NOT an ADT?"
     menu:
-        "Answer 1":
+        "Byte":
             a "Good Job"
             $ section2 += 1
             jump section2
-        "Answer 2":
+        "String":
             a "That's not quite right!"
             jump section2question1
-        "Answer 3":
+        "List":
             a "That's not quite right!"
             jump section2question1
-        "Answer 4":
+        "Stack":
             a "That's not quite right!"
             jump section2question1
 
 label section2question2:
-    a "Question 2"
+    a "Question 2: Consider the following stack implementation:"# Show Stack
+    a "What does the following code print?" # show code
     $ Answer_2_2 = renpy.input("Input your answer here", length = 64)
-    if Answer_2_2 == "Skibidi":
+    if Answer_2_2 == "3":
         a "You’ve done it"
         $ section2 += 1
         jump section2
@@ -196,9 +197,10 @@ label section2question2:
         jump section2question2
 
 label section2question3:
-    a "Question 3"
+    a "Question 3: Consider the following queue implementation:"# Show Queue
+    a "What does the following code print?" # show code
     $ Answer_2_3 = renpy.input("Input your answer here", length = 64)
-    if Answer_2_3 == "Skibidi":
+    if Answer_2_3 == "1":
         a "Impressive"
         $ section2 += 1
         jump section2
@@ -207,26 +209,28 @@ label section2question3:
         jump section2question3
 
 label section2question4:
-    a "Question 4"
+    a "Question 4: What is the time complexity of this program?"
     menu:
-        "Answer 1":
+        "Linear":
             a "That's not quite right!"
             jump section2question4
-        "Answer 2":
+        "Polynomial":
             a "That's not quite right!"
             jump section2question4
-        "Answer 3":
+        "Constant":
             a "Well Done"
             $ section2 += 1
             jump section2
-        "Answer 4":
+        "Exponential":
             a "That's not quite right!"
             jump section2question4
 
 label section2question5:
-    a "Question 5"
-    $ Answer_2_5 = renpy.input("Input your answer here", length = 64)
-    if Answer_2_5 == "Skibidi":
+    a "Question 5: Fill in the blanks:"
+    $ Answer_2_5_a = renpy.input("Blank #1: Input your answer here", length = 64)
+    $ Answer_2_5_b = renpy.input("Blank #2: Input your answer here", length = 64)
+    $ Answer_2_5_c = renpy.input("Blank #3: Input your answer here", length = 64)
+    if Answer_2_5_a == "6" and Answer_2_5_b == "5" and Answer_2_5_c == "idx":
         a "Good Job"
         $ section2 += 1
         jump section2
