@@ -98,8 +98,7 @@ label section1question1:
             jump section1question1
 
 label section1question2:
-    hide mr_al_neutral
-    show mr_al_neutral at custom_pos
+    show mr_al_talk at custom_pos
     a "Question 2: Here is a Linked List implementation. What is the output of the following code?"
     $ Answer_1_2 = renpy.input("Input your answer here", length = 64)
     if Answer_1_2 == ("28.0" or "28"):
