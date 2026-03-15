@@ -123,12 +123,13 @@ label section1question2:
     $ Answer_1_2 = renpy.input("Input your answer here", length = 64)
     if Answer_1_2 == "28.0" or Answer_1_2 == "28":
         hide mr_al_neutral
-        a "Good Job"
+        a "Good Job!"
         $ section1 += 1
         jump section1
     else:
         hide mr_al_neutral
-        a "That's not quite right!"
+        a "Not quite. Try writing out your linked list on paper using nodes and arrows."
+        a "Remember that you start at the top of the list each time the object is accessed."
         jump section1question2
 
 label section1question3:
@@ -143,7 +144,7 @@ label section1question3:
         jump section1
     else:
         hide mr_al_neutral
-        a "That's not quite right!"
+        a "That's wrong. Look for variables that are taking up space they're not giving back."
         jump section1question3
 
 label section1question4:
@@ -158,7 +159,7 @@ label section1question4:
         jump section1
     else:
         hide mr_al_neutral
-        a "That's not quite right!"
+        a "No. Remember that Python arrays are zero-indexed!"
         jump section1question4
 
 label section1question5:
@@ -168,12 +169,12 @@ label section1question5:
     $ Answer_1_5 = renpy.input("Input your answer here", length = 64)
     if Answer_1_5 == "11":
         hide mr_al_neutral
-        a "Well Done"
+        a "Brilliant!"
         $ section1 += 1
         jump section1
     else:
         hide mr_al_neutral
-        a "That's not quite right!"
+        a "That's not quite right! It looks like someone was trying to implement a singly-linked list in a doubly-linked list ADT."
         jump section1question5
 
 label intermission1:
@@ -236,23 +237,23 @@ label section2question1:
         "Byte":
             hide mr_al_neutral
             show mr_al_talk at custom_pos
-            a "Good Job"
+            a "Yes!"
             $ section2 += 1
             jump section2
         "String":
             hide mr_al_neutral
             show mr_al_talk at custom_pos
-            a "That's not quite right!"
+            a "That's not quite right! Strings are arrays of the char type, with their own operations."
             jump section2question1
         "List":
             hide mr_al_neutral
             show mr_al_talk at custom_pos
-            a "That's not quite right!"
+            a "That's not quite right! Lists are feature-rich Python objects, and implement their own operations, such as append."
             jump section2question1
         "Stack":
             hide mr_al_neutral
             show mr_al_talk at custom_pos
-            a "That's not quite right!"
+            a "That's not quite right! Stacks implement their own methods, such as pop()."
             jump section2question1
 
 label section2question2:
@@ -263,12 +264,12 @@ label section2question2:
     $ Answer_2_2 = renpy.input("Input your answer here", length = 64)
     if Answer_2_2 == "3":
         hide mr_al_neutral
-        a "You’ve done it"
+        a "You’ve done it!"
         $ section2 += 1
         jump section2
     else:
         hide mr_al_neutral
-        a "That's not quite right!"
+        a "Try again. Remember, stacks are LIFO objects, meaning that whatever was last pushed will be popped first."
         jump section2question2
 
 label section2question3:
@@ -284,7 +285,7 @@ label section2question3:
         jump section2
     else:
         hide mr_al_neutral
-        a "That's not quite right!"
+        a "Try again. Remember, queues are FIFO objects, meaning that whatever was first enqueued will be dequeued first."
         jump section2question3
 
 label section2question4:
@@ -297,23 +298,23 @@ label section2question4:
         "Linear":
             hide mr_al_neutral
             show mr_al_talk at custom_pos
-            a "That's not quite right!"
+            a "That's not quite right! Queue operations all run in constant time."
             jump section2question4
         "Polynomial":
             hide mr_al_neutral
             show mr_al_talk at custom_pos
-            a "That's not quite right!"
+            a "No- Queue operations all run in constant time."
             jump section2question4
         "Constant":
             hide mr_al_neutral
             show mr_al_talk at custom_pos
-            a "Well Done"
+            a "Well Done!"
             $ section2 += 1
             jump section2
         "Exponential":
             hide mr_al_neutral
             show mr_al_talk at custom_pos
-            a "That's not quite right!"
+            a "Do better. Queue operations all run in constant time."
             jump section2question4
 
 label section2question5:
@@ -325,12 +326,12 @@ label section2question5:
     $ Answer_2_5_c = renpy.input("Blank #3: Input your answer here", length = 64)
     if Answer_2_5_a == "6" and Answer_2_5_b == "5" and Answer_2_5_c == "idx":
         hide mr_al_neutral
-        a "Good Job"
+        a "Fantastic."
         $ section2 += 1
         jump section2
     else:
         hide mr_al_neutral
-        a "That's not quite right!"
+        a "Try again!"
         jump section2question5
 
 label intermission2:
@@ -393,22 +394,22 @@ label section3question1:
         "log2(h)":
             hide mr_al_neutral
             show mr_al_talk at custom_pos
-            a "That's not quite right!"
+            a "Wrong direction. The number of nodes on each level doubles."
             jump section3question1
         "2h+1":
             hide mr_al_neutral
             show mr_al_talk at custom_pos
-            a "That's not quite right!"
+            a "Right values, wrong operators ;)"
             jump section3question1
         "h^2":
             hide mr_al_neutral
             show mr_al_talk at custom_pos
-            a "That's not quite right!"
+            a "Right direction, but remember that the number of nodes on each level doubles."
             jump section3question1
         "(2^h)-1":
             hide mr_al_neutral
             show mr_al_talk at custom_pos
-            a "Well done"
+            a "You're getting really good at this, [name]!"
             $ section3 += 1
             jump section3
 
@@ -422,23 +423,23 @@ label section3question2:
         "Answer 1":
             hide mr_al_neutral
             show mr_al_talk at custom_pos
-            a "That's not quite right!"
+            a "Wrong! Check the balance of each tree."
             jump section3question2
         "Answer 2":
             hide mr_al_neutral
             show mr_al_talk at custom_pos
-            a "Impressive"
+            a "Impressive!"
             $ section3 += 1
             jump section3
         "Answer 3":
             hide mr_al_neutral
             show mr_al_talk at custom_pos
-            a "That's not quite right"
+            a "I'm afraid not. Check the balance of each tree."
             jump section3question2
         "Answer 4":
             hide mr_al_neutrals
             show mr_al_talk at custom_pos
-            a "That's not quite right"
+            a "Regrettably, no. Check the balance of each tree."
             jump section3question2
 
 label section3question3:
@@ -453,7 +454,7 @@ label section3question3:
         jump section3
     else:
         hide mr_al_neutral
-        a "That's not quite right!"
+        a "Give it another go!"
         jump section3question3
 
 label section3question4:
@@ -471,7 +472,7 @@ label section3question4:
         "O(n log (n))":
             hide mr_al_neutral
             show mr_al_talk at custom_pos
-            a "Good job"
+            a "Stellar work!"
             $ section3 += 1
         "O(n^2)":
             hide mr_al_neutral
@@ -501,17 +502,17 @@ label section3question5:
         "B":
             hide mr_al_neutral
             show mr_al_talk at custom_pos
-            a "That's not quite right!"
+            a "No good. Look into the binary heap construction algorithm in the notes."
             jump section3question5
         "C":
             hide mr_al_neutral
             show mr_al_talk at custom_pos
-            a "That's not quite right!"
+            a "No good. Look into the binary heap construction algorithm in the notes."
             jump section3question5
         "D":
             hide mr_al_neutral
             show mr_al_talk at custom_pos
-            a "That's not quite right!"
+            a "No good. Look into the binary heap construction algorithm in the notes."
             jump section3question5
 
 label intermission3:
@@ -584,23 +585,23 @@ label section4question1:
         "Insertion":
             hide mr_al_neutral
             show mr_al_talk at custom_pos
-            a "That's not quite right!"
+            a "Try again. Insertion sort runs in O(n^2) time."
             jump section4question1
         "Merge":
             hide mr_al_neutral
             show mr_al_talk at custom_pos
-            a "Impressive"
+            a "There goes my Stable Sorting Sensei!"
             $ section4 += 1
             jump section4
         "Heap":
             hide mr_al_neutral
             show mr_al_talk at custom_pos
-            a "That's not quite right!"
+            a "Incorrect- heapsort is unstable."
             jump section4question1
         "Quick":
             hide mr_al_neutral
             show mr_al_talk at custom_pos
-            a "That's not quite right!"
+            a "Quicksort is not guaranteed stability."
             jump section4question1
 
 label section4question2:
@@ -623,7 +624,7 @@ label section4question2:
         "Non-Comparison":
             hide mr_al_neutral
             show mr_al_talk at custom_pos
-            a "Well done"
+            a "The sort may be radix, but you are 'rad'-der!"
             $ section4 += 1
             jump section4
         "Pigeonhole":
@@ -644,15 +645,15 @@ label section4question3:
             show mr_al_talk at custom_pos
             a "That's not quite right!"
             jump section4question3
-        "Selection":
+        "Bubble":
             hide mr_al_neutral
             show mr_al_talk at custom_pos
             a "That's not quite right!"
             jump section4question3
-        "Radix":
+        "Selection":
             hide mr_al_neutral
             show mr_al_talk at custom_pos
-            a "Good job"
+            a "Good job!"
             $ section4 += 1
             jump section4
         "Merge":
@@ -668,23 +669,23 @@ label section4question4:
     hide mr_al_talk
     show mr_al_neutral at small
     menu:
-        "Answer 1":
+        "Insertion":
             hide mr_al_neutral
             show mr_al_talk at custom_pos
             a "That's not quite right!"
             jump section4question4
-        "Answer 2":
+        "Selection":
             hide mr_al_neutral
             show mr_al_talk at custom_pos
             a "That's not quite right!"
             jump section4question4
-        "Answer 3":
+        "Radix":
             hide mr_al_neutral
             show mr_al_talk at custom_pos
-            a "You've done it"
+            a "You've done it!"
             $ section4 += 1
             jump section4
-        "Answer 4":
+        "Merge":
             hide mr_al_neutral
             show mr_al_talk at custom_pos
             a "That's not quite right"
@@ -786,23 +787,23 @@ label section5question1:
         "A":
             hide mr_al_neutral
             show mr_al_talk at custom_pos
-            a "That's not quite right!"
+            a "That can't be right. Node 0 is not adjacent to node 2 in the matrix."
             jump section5question1
         "B":
             hide mr_al_neutral
             show mr_al_talk at custom_pos
-            a "Well done"
+            a "Hooray!"
             $ section5 += 1
             jump section5
         "C":
             hide mr_al_neutral
             show mr_al_talk at custom_pos
-            a "That's not quite right!"
+            a "That can't be right. Node 0 is not adjacent to node 2 in the matrix."
             jump section5question1
         "D":
             hide mr_al_neutral
             show mr_al_talk at custom_pos
-            a "That's not quite right!"
+            a "Give it another shot. Node 0 is not adjacent to node 2 in the matrix."
             jump section5question1
 
 label section5question2:
@@ -813,12 +814,12 @@ label section5question2:
     $ Answer_5_2 = renpy.input("Input your answer here", length = 64)
     if Answer_5_2 == "7":
         hide mr_al_neutral
-        a "Well done"
+        a "I fear you may be goated."
         $ section5 += 1
         jump section5
     else:
         hide mr_al_neutral
-        a "That's not quite right!"
+        a "How about another go?"
         jump section5question2
 
 label section5question3:
@@ -829,12 +830,12 @@ label section5question3:
     $ Answer_5_3 = renpy.input("Input your answer here", length = 64)
     if Answer_5_3 == "17":
         hide mr_al_neutral
-        a "Well done"
+        a "Yes, that's right!"
         $ section5 += 1
         jump section5
     else:
         hide mr_al_neutral
-        a "That's not quite right!"
+        a "Try again."
         jump section5question3
 
 label section5question4:
@@ -847,12 +848,12 @@ label section5question4:
         "(n^2)/2":
             hide mr_al_neutral
             show mr_al_talk at custom_pos
-            a "That's not quite right!"
+            a "Try again. You could research the Handshaking Lemma to help you along."
             jump section5question4
         "(n(n-1))/2":
             hide mr_al_neutral
             show mr_al_talk at custom_pos
-            a "That's not quite right!"
+            a "That's not right. You could research the Handshaking Lemma to help you along."
             jump section5question4
         "2n":
             hide mr_al_neutral
@@ -863,7 +864,7 @@ label section5question4:
         "log2(n)":
             hide mr_al_neutral
             show mr_al_talk at custom_pos
-            a "That's not quite right!"
+            a "No. You could research the Handshaking Lemma to help you along."
             jump section5question4
 
 label section5question5:
@@ -876,23 +877,23 @@ label section5question5:
         "Tree":
             hide mr_al_neutral
             show mr_al_talk at custom_pos
-            a "Well done"
+            a "Great work, [name]!"
             $ section5 += 1
             jump section5
         "Edge":
             hide mr_al_neutral
             show mr_al_talk at custom_pos
-            a "That's not quite right!"
+            a "No, but an edge is a structural element of a graph."
             jump section5question5
         "Function":
             hide mr_al_neutral
             show mr_al_talk at custom_pos
-            a "That's not quite right!"
+            a "Not quite."
             jump section5question5
         "Grammar":
             hide mr_al_neutral
             show mr_al_talk at custom_pos
-            a "That's not quite right!"
+            a "This isn't true, although some grammars can be represented by graphs."
             jump section5question5
 
 label intermission5:
