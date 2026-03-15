@@ -55,6 +55,10 @@ label start:
     g "What is your name?"
     $ Name = renpy.input("Input a name here", length=32)
     g "Welcome [Name]."
+    if Name == "Mr Linear Algebra" or Name == "mr linear algebra":
+        show mr_al_shocked at custom_pos
+        a "...how"
+        jump quit
 
     show mr_al_talk at custom_pos # mr algorithm appears
     a "Good day to you [Name]."
@@ -95,54 +99,64 @@ label section1question1:
     show question_1_1_big
     menu:
         "A":
+            hide question_1_1_big
             hide mr_al_neutral
             show mr_al_talk at custom_pos
             a "That's right! Nice attention to detail."
             $ section1 += 1
             jump section1
         "B":
+            hide question_1_1_big
             hide mr_al_neutral
             show mr_al_talk at custom_pos
             a "Not quite; remember that “sizeof” returns the number of bytes the object takes up."
             jump section1question1
         "C":
+            hide question_1_1_big
             hide mr_al_neutral
             show mr_al_talk at custom_pos
             a "...hmm. Looks like you've got a malformed array there in the first line!"
             jump section1question1
         "D":
+            hide question_1_1_big
             hide mr_al_neutral
             show mr_al_talk at custom_pos
             a "Alan Please add details."
             jump section1question1
 
 label section1question2:
+    show question_1_2
     show mr_al_talk at custom_pos
     a "Question 2: Here is a Linked List implementation. What is the output of the following code?"
     show mr_al_neutral at custom_pos
     $ Answer_1_2 = renpy.input("Input your answer here", length = 64)
     if Answer_1_2 == "28.0" or Answer_1_2 == "28":
+        hide question_1_2
         hide mr_al_neutral
         a "Good Job!"
         $ section1 += 1
         jump section1
     else:
+        hide question_1_2
         hide mr_al_neutral
         a "Not quite. Try writing out your linked list on paper using nodes and arrows."
         a "Remember that you start at the top of the list each time the object is accessed."
         jump section1question2
 
 label section1question3:
+    show question_1_3
     show mr_al_talk at custom_pos
     a "Question 3: Type the name of the variable that causes a leak in this code:"
     show mr_al_neutral at custom_pos
     $ Answer_1_3 = renpy.input("Input your answer here", length = 64)
     if Answer_1_3 == "ptr2":
+        hide question_1_3
         hide mr_al_neutral
         a "You’ve done it!"
         $ section1 += 1
         jump section1
     else:
+        hide question_1_3
         hide mr_al_neutral
         a "That's wrong. Look for variables that are taking up space they're not giving back."
         jump section1question3
@@ -163,16 +177,19 @@ label section1question4:
         jump section1question4
 
 label section1question5:
+    show question_1_5
     show mr_al_talk at custom_pos
     a "Question 5: Enter the line number where this linked list implementation fails"
     show mr_al_neutral at custom_pos
     $ Answer_1_5 = renpy.input("Input your answer here", length = 64)
     if Answer_1_5 == "11":
+        hide question_1_5
         hide mr_al_neutral
         a "Brilliant!"
         $ section1 += 1
         jump section1
     else:
+        hide question_1_5
         hide mr_al_neutral
         a "That's not quite right! It looks like someone was trying to implement a singly-linked list in a doubly-linked list ADT."
         jump section1question5
@@ -257,43 +274,51 @@ label section2question1:
             jump section2question1
 
 label section2question2:
+    show question_2_2
     show mr_al_talk at custom_pos
     a "Question 2: Consider the following stack implementation:"# Show Stack
     a "What does the following code print?" # show code
     show mr_al_neutral at custom_pos
     $ Answer_2_2 = renpy.input("Input your answer here", length = 64)
     if Answer_2_2 == "3":
+        hide question_2_2
         hide mr_al_neutral
         a "You’ve done it!"
         $ section2 += 1
         jump section2
     else:
+        hide question_2_""
         hide mr_al_neutral
         a "Try again. Remember, stacks are LIFO objects, meaning that whatever was last pushed will be popped first."
         jump section2question2
 
 label section2question3:
+    show question_2_34
     show mr_al_talk at custom_pos
     a "Question 3: Consider the following queue implementation:"# Show Queue
     a "What does the following code print?" # show code
     show mr_al_neutral at custom_pos
     $ Answer_2_3 = renpy.input("Input your answer here", length = 64)
     if Answer_2_3 == "1":
+        hide question_2_34
         hide mr_al_neutral
         a "Impressive"
         $ section2 += 1
         jump section2
     else:
+        hide question_2_34
         hide mr_al_neutral
         a "Try again. Remember, queues are FIFO objects, meaning that whatever was first enqueued will be dequeued first."
         jump section2question3
 
 label section2question4:
+    show question_2_34
     #show mr_al_talk at custom_pos
     a "Question 4: What is the time complexity of this program?"
     hide mr_al_talk
     hide mr_al_neutral
     show mr_al_neutral at small
+    hide question_2_34
     menu:
         "Linear":
             hide mr_al_neutral
@@ -318,6 +343,7 @@ label section2question4:
             jump section2question4
 
 label section2question5:
+    show question_2_5
     show mr_al_talk at custom_pos
     a "Question 5: Fill in the blanks:"
     show mr_al_neutral at custom_pos
@@ -325,11 +351,13 @@ label section2question5:
     $ Answer_2_5_b = renpy.input("Blank #2: Input your answer here", length = 64)
     $ Answer_2_5_c = renpy.input("Blank #3: Input your answer here", length = 64)
     if Answer_2_5_a == "6" and Answer_2_5_b == "5" and Answer_2_5_c == "idx":
+        hide question_2_5
         hide mr_al_neutral
         a "Fantastic."
         $ section2 += 1
         jump section2
     else:
+        hide question_2_5
         hide mr_al_neutral
         a "Try again!"
         jump section2question5
@@ -926,50 +954,63 @@ label intermission5:
                     a "Let us begin!"
                     jump section5
                 "Lets say I believe you, why are you in a computer then?":
+                    hide mr_al_neutral
                     jump intermission5lore
     else:
         menu:
             "I'm ready":
+                hide mr_al_neutral
                 a "Let us begin!"
                 jump section5
 
 label intermission5lore:
     if friendship == 2:
         a "I was recuperating here and hiding from my mortal enemy..."
+        show mr_al_neutral at custom_pos
         menu:
             "I hope you are feeling better now!":
+                hide mr_al_neutral
                 $ friendship += 1
                 $ knowledge_of_enemy = True
                 $ knowledge_of_recuperation = True
                 a "Thank you!"
             "Whatever.":
+                hide mr_al_neutral
                 $ friendship -= 1
                 $ knowledge_of_enemy = True
                 $ knowledge_of_recuperation = True
                 a "..."
     elif friendship == 1 or friendship == 0:
         a "I was recuperating here"
+        show mr_al_neutral at custom_pos
         menu:
             "I hope you are feeling better now!":
+                hide mr_al_neutral
                 $ friendship += 1
                 $ knowledge_of_enemy = False
                 $ knowledge_of_recuperation = True
                 a "Thank you!"
             "Whatever.":
+                hide mr_al_neutral
                 $ friendship -= 1
                 $ knowledge_of_enemy = False
                 $ knowledge_of_recuperation = True
                 a "..."
     else:
         a "Why do you even care?"
+        show mr_al_neutral at custom_pos
         menu:
             "Because I want to get to know you better.":
+                hide mr_al_neutral
                 $ friendship += 1
                 $ knowledge_of_recuperation = False
                 $ knowledge_of_enemy = False
                 a "..."
             "Just wanted to see what you are programmed to say.":
+                hide mr_al_neutral
                 $ friendship -= 1
                 $ knowledge_of_recuperation = False
                 $ knowledge_of_enemy = False
                 a "..."
+label quit:
+    pass
