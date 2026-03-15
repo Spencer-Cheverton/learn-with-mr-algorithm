@@ -528,3 +528,47 @@ label section4question5:
         "That's not quite right!"
         jump section4question5
 
+label intermission4:
+    a "How did you find the third topic?"
+    menu:
+        "It was really easy":
+            "Well they'll only get harder from here on out, so make sure you're prepared"
+        "It was super challenging":
+            "Hopefully you were able to learn from your mistakes"
+    a "Are you ready to move on?"
+
+    if lore_route:
+        menu:
+            "I'm ready":
+                "Let us begin!"
+                jump section4
+            "Are you real?":
+                jump intermission4lore
+    else:
+        menu:
+            "I'm ready":
+                "Let us begin!"
+                jump section5
+
+label intermission4lore:
+    if friendship == 1:
+        a "I am alive and can think for myself"
+        menu:
+            "That's awesome! I've never seen a computer program this advanced before":
+                a "I am a very advanced program!"
+                $ friendship += 1
+            "I don't believe you. This must be a trick.":
+                a "Believe what you want, I guess."
+                $ friendship -= 1
+    else:
+        a "Yes"
+        menu:
+            "That's awesome. I've never seen a computer program this advanced before":
+                a "I am a very advanced program!"
+                $ friendship += 1
+            "I don't believe you. This must be a trick.":
+                a "Believe what you want, I guess."
+                $ friendship -= 1
+    jump section5
+
+
