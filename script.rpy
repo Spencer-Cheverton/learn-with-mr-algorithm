@@ -39,6 +39,8 @@ transform small:
     pos(0, 1070)
 
 label start:
+    if not renpy.loadable("images/mr_a.jpg"):
+        $raise Exception("You have angered Mr Algorithm by destroying an effigy of his glorious visage.")
     $renpy.sound.play("scruff.mp3", loop=True)
     $ lore_route = True
     $ knowledge_of_enemy = False
