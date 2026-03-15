@@ -113,59 +113,75 @@ label section1question2:
         jump section1question2
 
 label section1question3:
-    hide mr_al_neutral
-    show mr_al_neutral at custom_pos
+    show mr_al_talk at custom_pos
     a "Question 3: Type the name of the variable that causes a leak in this code:"
+    show mr_al_neutral at custom_pos
     $ Answer_1_3 = renpy.input("Input your answer here", length = 64)
     if Answer_1_3 == "ptr2":
+        hide mr_al_neutral
         a "You’ve done it!"
         $ section1 += 1
         jump section1
     else:
+        hide mr_al_neutral
         a "That's not quite right!"
         jump section1question3
 
 label section1question4:
-    hide mr_al_neutral
-    show mr_al_neutral at custom_pos
+    show mr_al_talk at custom_pos
     a "Question 4: Fill in the blank to pass this test:"
+    show mr_al_neutral at custom_pos
     $ Answer_1_4 = renpy.input("Input your answer here", length = 64)
     python:
         input_list = list(Answer_1_4)
         if (input_list[0] % 2 == 1) and (my_list[1]) and (my_list[-1] % 5 == 4) and len(my_list > 4):
             correct = True
     if correct:
+        hide mr_al_neutral
         a "Impressive work!"
         $ section1 += 1
         $ correct = False
         jump section1
     else:
+        hide mr_al_neutral
         a "That's not quite right!"
         jump section1question4
 
 label section1question5:
-    hide mr_al_neutral
     show mr_al_neutral at custom_pos
     a "Question 5: Enter the line number where this linked list implementation fails:"
+    show mr_al_neutral at custom_pos
     $ Answer_1_5 = renpy.input("Input your answer here", length = 64)
     if Answer_1_5 == "11":
+        hide mr_al_neutral
         a "Well Done"
         $ section1 += 1
         jump section1
     else:
+        hide mr_al_neutral
         a "That's not quite right!"
         jump section1question5
 
 label intermission1:
+    hide mr_al_neutral
+    show mr_al_talk at custom_pos
     a "How did you find the first topic?"
+    hide mr_al_talk
+    show mr_al_neutral at custom_pos
     menu:
         "It was really easy":
+            hide mr_al_neutral
+            show mr_al_talk at custom_pos
             a "Well, they'll only get harder from here on out, so make sure you're prepared!"
 
         "It was super challenging":
+            hide mr_al_neutral
+            show mr_al_talk at custom_pos
             a "Hopefully you were able to learn from your mistakes" # something along these lines
 
     a "Are you ready to move on?"
+    hide mr_al_talk
+    show mr_al_neutral at custom_pos
     menu:
         "I'm ready": # indicate that this choice locks the player out of the 'lore' route
             $ lore_route = False
