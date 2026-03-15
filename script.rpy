@@ -6,6 +6,8 @@ define g = Character("System")
 # variables
 init python:
     lore_route = True
+    knowledge_of_enemy = False
+    knowledge_of_recuperation = False
     friendship = 0
     section1 = 0
     section2 = 0
@@ -136,10 +138,11 @@ label section1question4:
     a "Question 4: Fill in the blank to pass this test:"
     show mr_al_neutral at custom_pos
     $ Answer_1_4 = renpy.input("Input your answer here", length = 64)
-    python:
-        input_list = list(Answer_1_4)
-        if (input_list[0] % 2 == 1) and (my_list[1]) and (my_list[-1] % 5 == 4) and len(my_list > 4):
-            correct = True
+    #python:
+        #input_list = list(Answer_1_4)
+        #if (input_list[0] % 2 == 1) and (my_list[1]) and (my_list[-1] % 5 == 4) and len(my_list > 4):
+            #correct = True
+    $ correct = True # remove later
     if correct:
         hide mr_al_neutral
         a "Impressive work!"
@@ -153,7 +156,7 @@ label section1question4:
 
 label section1question5:
     show mr_al_neutral at custom_pos
-    a "Question 5: Enter the line number where this linked list implementation fails:"
+    a "Question 5: Enter the line number where this linked list implementation fails"
     show mr_al_neutral at custom_pos
     $ Answer_1_5 = renpy.input("Input your answer here", length = 64)
     if Answer_1_5 == "11":
@@ -376,7 +379,7 @@ label section3question4:
         "O(n)":
             a "That's not quite right!"
             jump section3question4
-        "O(n log (n)":
+        "O(n log (n))":
             a "Good job"
             $ section3 += 1
         "O(n^2)":
@@ -408,9 +411,9 @@ label intermission3:
     a "How did you find the third topic?"
     menu:
         "It was really easy":
-            "Well they'll only get harder from here on out, so make sure you're prepared"
+            a "Well they'll only get harder from here on out, so make sure you're prepared"
         "It was super challenging":
-            "Hopefully you were able to learn from your mistakes"
+            a "Hopefully you were able to learn from your mistakes"
     a "Are you ready to move on?"
 
     if lore_route:
@@ -456,68 +459,68 @@ label section4question1:
     a "Question 1: Which of the following sorting algorithms achieves O(n log(n)) complexity with perfect stability?"
     menu:
         "Insertion":
-            "That's not quite right!"
+            a "That's not quite right!"
             jump section4question1
         "Merge":
-            "Impressive"
+            a "Impressive"
             $ section4 += 1
             jump section4
         "Heap":
-            "That's not quite right!"
+            a "That's not quite right!"
             jump section4question1
         "Quick":
-            "That's not quite right!"
+            a "That's not quite right!"
             jump section4question1
 
 label section4question2:
     a "Question 2: Radix Sort is an example of what sorting algorithm?"
     menu:
         "Merge":
-            "That's not quite right!"
+            a "That's not quite right!"
             jump section4question2
         "Quick":
-            "That's not quite right!"
+            a "That's not quite right!"
             jump section4question2
         "Non-Comparison":
-            "Well done"
+            a "Well done"
             $ section4 += 1
             jump section4
         "Pigeonhole":
-            "That's not quite right!"
+            a "That's not quite right!"
             jump section4question2
 
 label section4question3:
     a "Question 3: Which of these algorithms are unstable?"
     menu:
         "Insertion":
-            "That's not quite right!"
+            a "That's not quite right!"
             jump section4question3
         "Selection":
-            "That's not quite right!"
+            a "That's not quite right!"
             jump section4question3
         "Radix":
-            "Good job"
+            a "Good job"
             $ section4 += 1
             jump section4
         "Merge":
-            "That's not quite right!"
+            a "That's not quite right!"
             jump section4question3
 
 label section4question4:
     a "Question 4: Which of these algorithms has best average-case time complexity for large n?"
     menu:
         "Answer 1":
-            "That's not quite right!"
+            a "That's not quite right!"
             jump section4question4
         "Answer 2":
-            "That's not quite right!"
+            a "That's not quite right!"
             jump section4question4
         "Answer 3":
-            "You've done it"
+            a "You've done it"
             $ section4 += 1
             jump section4
         "Answer 4":
-            "That's not quite right"
+            a "That's not quite right"
             jump section4question4
 
 
@@ -533,25 +536,25 @@ label section4question5:
         jump section4question5
 
 label intermission4:
-    a "How did you find the third topic?"
+    a "How did you find the fourth topic?"
     menu:
         "It was really easy":
-            "Well they'll only get harder from here on out, so make sure you're prepared"
+            a "Well they'll only get harder from here on out, so make sure you're prepared"
         "It was super challenging":
-            "Hopefully you were able to learn from your mistakes"
+            a "Hopefully you were able to learn from your mistakes"
     a "Are you ready to move on?"
 
     if lore_route:
         menu:
             "I'm ready":
-                "Let us begin!"
+                a "Let us begin!"
                 jump section4
             "Are you real?":
                 jump intermission4lore
     else:
         menu:
             "I'm ready":
-                "Let us begin!"
+                a "Let us begin!"
                 jump section5
 
 label intermission4lore:
@@ -587,23 +590,23 @@ label section5:
     elif section5 == 4:
         jump section5question5
     else:
-        "jump section6/paywall"
+        jump intermission5
 
 label section5question1:
     a "Question 1: What graph does this adjacency matrix represent?"
-    main:
+    menu:
         "A":
-            "That's not quite right!"
+            a "That's not quite right!"
             jump section5question1
         "B":
-            "Well done"
+            a "Well done"
             $ section5 += 1
             jump section5
         "C":
-            "That's not quite right!"
+            a "That's not quite right!"
             jump section5question1
         "D":
-            "That's not quite right!"
+            a "That's not quite right!"
             jump section5question1
 
 label section5question2:
@@ -632,7 +635,7 @@ label section5question3:
 
 label section5question4:
     a "Question 4: Given a finite undirected graph G with n edges, what is the sum of its vertex degrees?"
-    main:
+    menu:
         "(n^2)/2":
             a "That's not quite right!"
             jump section5question4
@@ -649,7 +652,7 @@ label section5question4:
 
 label section5question5:
     a "Question 5: What item is a type of graph?"
-    main:
+    menu:
         "Tree":
             a "Well done"
             $ section5 += 1
@@ -664,3 +667,73 @@ label section5question5:
             a "That's not quite right!"
             jump section5question5
 
+label intermission5:
+    a "How did you find the fifth topic?"
+    menu:
+        "It was really easy":
+            a "Well they'll only get harder from here on out, so make sure you're prepared"
+        "It was super challenging":
+            a "Hopefully you were able to learn from your mistakes"
+    a "Are you ready to move on?"
+
+    if lore_route:
+        if friendship>0:
+            menu:
+                "I'm ready":
+                    a "Let us begin!"
+                    jump section5
+                "Why are you in a computer program?":
+                    jump intermission5lore
+        else:
+            menu:
+                "I'm ready":
+                    a "Let us begin!"
+                    jump section5
+                "Lets say I believe you, why are you in a computer then?":
+                    jump intermission5lore
+    else:
+        menu:
+            "I'm ready":
+                a "Let us begin!"
+                jump section5
+
+label intermission5lore:
+    if friendship == 2:
+        a "I was recuperating here and hiding from my mortal enemy..."
+        menu:
+            "I hope you are feeling better now!":
+                $ friendship += 1
+                $ knowledge_of_enemy = True
+                $ knowledge_of_recuperation = True
+                a "Thank you!"
+            "Whatever.":
+                $ friendship -= 1
+                $ knowledge_of_enemy = True
+                $ knowledge_of_recuperation = True
+                a "..."
+    elif friendship == 1 or friendship == 0:
+        a "I was recuperating here"
+        menu:
+            "I hope you are feeling better now!":
+                $ friendship += 1
+                $ knowledge_of_enemy = False
+                $ knowledge_of_recuperation = True
+                a "Thank you!"
+            "Whatever.":
+                $ friendship -= 1
+                $ knowledge_of_enemy = False
+                $ knowledge_of_recuperation = True
+                a "..."
+    else:
+        a "Why do you even care?"
+        menu:
+            "Because I want to get to know you better.":
+                $ friendship += 1
+                $ knowledge_of_recuperation = False
+                $ knowledge_of_enemy = False
+                a "..."
+            "Just wanted to see what you are programmed to say.":
+                $ friendship -= 1
+                $ knowledge_of_recuperation = False
+                $ knowledge_of_enemy = False
+                a "..."
