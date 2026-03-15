@@ -590,26 +590,27 @@ label section5:
         "jump section6/paywall"
 
 label section5question1:
-    a "Question 1"
+    a "Question 1: What graph does this adjacency matrix represent?"
     main:
-        "Answer 1":
+        "A":
             "That's not quite right!"
             jump section5question1
-        "Answer 2":
+        "B":
             "Well done"
             $ section5 += 1
             jump section5
-        "Answer 3":
+        "C":
             "That's not quite right!"
             jump section5question1
-        "Answer 4":
+        "D":
             "That's not quite right!"
             jump section5question1
 
 label section5question2:
-    a "Question 2"
+    a "Question 2: Consider the following graph:"# show nightmare graph
+    a "Using Djikstra's Algorithm, what is length of the shortest path from A to F?"
     $ Answer_5_2 = renpy.input("Input your answer here", length = 64)
-    if Answer_5_2 == "Skibidi":
+    if Answer_5_2 == "7":
         a "Well done"
         $ section5 += 1
         jump section5
@@ -618,9 +619,10 @@ label section5question2:
         jump section5question2
 
 label section5question3:
-    a "Question 3"
+    a "Question 3: Consider the following graph:" # show other graph#
+    a "Using Jarnik-Prim, what is the weight of the minimal spanning tree of this graph?"
     $ Answer_5_3 = renpy.input("Input your answer here", length = 64)
-    if Answer_5_3 == "Skibidi":
+    if Answer_5_3 == "17":
         a "Well done"
         $ section5 += 1
         jump section5
@@ -629,36 +631,36 @@ label section5question3:
         jump section5question3
 
 label section5question4:
-    a "Question 4"
+    a "Question 4: Given a finite undirected graph G with n edges, what is the sum of its vertex degrees?"
     main:
-        "Answer 1":
+        "(n^2)/2":
             a "That's not quite right!"
             jump section5question4
-        "Answer 2":
+        "(n(n-1))/2":
             a "That's not quite right!"
             jump section5question4
-        "Answer 3":
+        "2n":
             a "Well done"
             $ section5 += 1
             jump section5
-        "Answer 4":
+        "log2(n)":
             a "That's not quite right!"
             jump section5question4
 
 label section5question5:
-    a "Question 5"
+    a "Question 5: What item is a type of graph?"
     main:
-        "Answer 1":
+        "Tree":
             a "Well done"
             $ section5 += 1
             jump section5
-        "Answer 2":
+        "Edge":
             a "That's not quite right!"
             jump section5question5
-        "Answer 3":
+        "Function":
             a "That's not quite right!"
             jump section5question5
-        "Answer 4":
+        "Grammar":
             a "That's not quite right!"
             jump section5question5
 
