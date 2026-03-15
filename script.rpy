@@ -5,6 +5,7 @@ define g = Character("System")
 
 # variables
 init python:
+    import ast
     lore_route = True
     knowledge_of_enemy = False
     knowledge_of_recuperation = False
@@ -135,19 +136,13 @@ label section1question3:
 
 label section1question4:
     show mr_al_talk at custom_pos
-    a "Question 4: Fill in the blank to pass this test:"
+    a "Question 4: what index x is given for the array [[1,4,6,8,9] such that list [[x](mod 7) = 2?"
     show mr_al_neutral at custom_pos
     $ Answer_1_4 = renpy.input("Input your answer here", length = 64)
-    #python:
-        #input_list = list(Answer_1_4)
-        #if (input_list[0] % 2 == 1) and (my_list[1]) and (my_list[-1] % 5 == 4) and len(my_list > 4):
-            #correct = True
-    $ correct = True # remove later
-    if correct:
+    if Answer_1_4 == "4":
         hide mr_al_neutral
         a "Impressive work!"
         $ section1 += 1
-        $ correct = False
         jump section1
     else:
         hide mr_al_neutral
