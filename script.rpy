@@ -121,7 +121,7 @@ label section1question1:
             hide question_1_1_big
             hide mr_al_neutral
             show mr_al_talk at custom_pos
-            a "Alan Please add details."
+            a "Try again! this one has memory shenanigans in."
             jump section1question1
 
 label section1question2:
@@ -203,12 +203,12 @@ label intermission1:
         "It was really easy":
             hide mr_al_neutral
             show mr_al_talk at custom_pos
-            a "Well, they'll only get harder from here on out, so make sure you're prepared!"
+            a "Good work managing your memories!"
 
         "It was super challenging":
             hide mr_al_neutral
             show mr_al_talk at custom_pos
-            a "Hopefully you were able to learn from your mistakes" # something along these lines
+            a "Sounds like you had a bit of a memory leak!" # something along these lines
 
     a "Are you ready to move on?"
     hide mr_al_talk
@@ -367,13 +367,13 @@ label intermission2:
     a "How did you find the second topic?"
     show mr_al_neutral at custom_pos
     menu:
-        "It was really easy":
+        "It wasn't difficult at all!":
             hide mr_al_neutral
-            a "Well they'll only get harder from here on out, so make sure you're prepared!"
+            a "We'll be 'branching' out for this next topic; hope you're ready!"
 
-        "It was super challenging":
+        "I struggled quite a bit, actually.":
             hide mr_al_neutral
-            a "Hopefully you were able to learn from your mistakes"
+            a "Hope you didn't 'pop' under pressure!"
 
     a "Are you ready to move on?"
     show mr_al_neutral at custom_pos
@@ -548,12 +548,12 @@ label intermission3:
     a "How did you find the third topic?"
     show mr_al_neutral at custom_pos
     menu:
-        "It was really easy":
+        "I didn't have any trouble :)":
             hide mr_al_neutral
-            a "Well they'll only get harder from here on out, so make sure you're prepared"
-        "It was super challenging":
+            a "Hope you've got your thought in 'order' for the next section!"
+        "That was a car crash...":
             hide mr_al_neutral
-            a "Hopefully you were able to learn from your mistakes"
+            a "I'm rooting for you!"
     a "Are you ready to move on?"
     show mr_al_neutral at custom_pos
     if lore_route:
@@ -740,12 +740,12 @@ label intermission4:
     a "How did you find the fourth topic?"
     show mr_al_neutral at custom_pos
     menu:
-        "It was really easy":
+        "It was a walk in the park.":
             hide mr_al_neutral
-            a "Well they'll only get harder from here on out, so make sure you're prepared"
-        "It was super challenging":
+            a "Well, this next section's going to be a walk on the graph, so be prepared!"
+        "It left me all muddled up!":
             hide mr_al_neutral
-            a "Hopefully you were able to learn from your mistakes"
+            a "Hopefully you were able to 'sort' yourself out!"
     a "Are you ready to move on?"
     show mr_al_neutral at custom_pos
     if lore_route:
@@ -929,12 +929,12 @@ label intermission5:
     a "How did you find the fifth topic?"
     show mr_al_neutral at custom_pos
     menu:
-        "It was really easy":
+        "No difficulty!":
             hide mr_al_neutral
-            a "Well they'll only get harder from here on out, so make sure you're prepared"
-        "It was super challenging":
+            a "You've come so far, [Name]! I'm so proud of you."
+        "I feel like a bipartite graph :(":
             hide mr_al_neutral
-            a "Hopefully you were able to learn from your mistakes"
+            a "Well, don't feel disjoint about it!"
     a "Are you ready to move on?"
     show mr_al_neutral at custom_pos
     if lore_route:
