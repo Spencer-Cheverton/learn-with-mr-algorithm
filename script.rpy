@@ -448,23 +448,23 @@ label section3question2:
     hide mr_al_neutral
     show mr_al_neutral at small
     menu:
-        "Answer 1":
+        "A":
             hide mr_al_neutral
             show mr_al_talk at custom_pos
             a "Wrong! Check the balance of each tree."
             jump section3question2
-        "Answer 2":
+        "B":
             hide mr_al_neutral
             show mr_al_talk at custom_pos
             a "Impressive!"
             $ section3 += 1
             jump section3
-        "Answer 3":
+        "C":
             hide mr_al_neutral
             show mr_al_talk at custom_pos
             a "I'm afraid not. Check the balance of each tree."
             jump section3question2
-        "Answer 4":
+        "D":
             hide mr_al_neutrals
             show mr_al_talk at custom_pos
             a "Regrettably, no. Check the balance of each tree."
