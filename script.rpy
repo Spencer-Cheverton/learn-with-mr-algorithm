@@ -11,6 +11,7 @@ init python:
     section2 = 0
     section3 = 0
     section4 = 0
+    section5 = 0
     Answer_1_2 = ""
     Answer_1_3 = ""
     Answer_1_4 = ""
@@ -21,6 +22,9 @@ init python:
     Answer_3_1 = ""
     Answer_3_3 = ""
     Answer_4_5 = ""
+    Answer_5_2 = ""
+    Answer_5_3 = ""
+
 # game starts here
 
 
@@ -571,4 +575,90 @@ label intermission4lore:
                 $ friendship -= 1
     jump section5
 
+label section5:
+    if section5 == 0:
+        jump section5question1
+    elif section5 == 1:
+        jump section5question2
+    elif section5 == 2:
+        jump section5question3
+    elif section5 == 3:
+        jump section5question4
+    elif section5 == 4:
+        jump section5question5
+    else:
+        "jump section6/paywall"
+
+label section5question1:
+    a "Question 1"
+    main:
+        "Answer 1":
+            "That's not quite right!"
+            jump section5question1
+        "Answer 2":
+            "Well done"
+            $ section5 += 1
+            jump section5
+        "Answer 3":
+            "That's not quite right!"
+            jump section5question1
+        "Answer 4":
+            "That's not quite right!"
+            jump section5question1
+
+label section5question2:
+    a "Question 2"
+    $ Answer_5_2 = renpy.input("Input your answer here", length = 64)
+    if Answer_5_2 == "Skibidi":
+        a "Well done"
+        $ section5 += 1
+        jump section5
+    else:
+        a "That's not quite right!"
+        jump section5question2
+
+label section5question3:
+    a "Question 3"
+    $ Answer_5_3 = renpy.input("Input your answer here", length = 64)
+    if Answer_5_3 == "Skibidi":
+        a "Well done"
+        $ section5 += 1
+        jump section5
+    else:
+        a "That's not quite right!"
+        jump section5question3
+
+label section5question4:
+    a "Question 4"
+    main:
+        "Answer 1":
+            a "That's not quite right!"
+            jump section5question4
+        "Answer 2":
+            a "That's not quite right!"
+            jump section5question4
+        "Answer 3":
+            a "Well done"
+            $ section5 += 1
+            jump section5
+        "Answer 4":
+            a "That's not quite right!"
+            jump section5question4
+
+label section5question5:
+    a "Question 5"
+    main:
+        "Answer 1":
+            a "Well done"
+            $ section5 += 1
+            jump section5
+        "Answer 2":
+            a "That's not quite right!"
+            jump section5question5
+        "Answer 3":
+            a "That's not quite right!"
+            jump section5question5
+        "Answer 4":
+            a "That's not quite right!"
+            jump section5question5
 
