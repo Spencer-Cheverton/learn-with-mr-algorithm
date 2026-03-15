@@ -510,3 +510,21 @@ label section4question4:
             jump section4question4
         "Answer 3":
             "You've done it"
+            $ section4 += 1
+            jump section4
+        "Answer 4":
+            "That's not quite right"
+            jump section4question4
+
+
+label section4question5:
+    a "Question 5"
+    $ Answer_4_5 = renpy.input("Input your answer here", length = 64)
+    if Answer_4_5 == "Skibidi":
+        a "Well done"
+        $ section4 += 1
+        jump section4
+    else:
+        "That's not quite right!"
+        jump section4question5
+
