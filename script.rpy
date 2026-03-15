@@ -75,23 +75,23 @@ label section1question1:
     show mr_al_neutral at small
 
     menu:
-        "Answer 1":
+        "A":
             hide mr_al_neutral
             show mr_al_talk at custom_pos
             a "That's right! Nice attention to detail."
             $ section1 += 1
             jump section1
-        "Answer 2":
+        "B":
             hide mr_al_neutral
             show mr_al_talk at custom_pos
             a "Not quite; remember that “sizeof” returns the number of bytes the object takes up."
             jump section1question1
-        "Answer 3":
+        "C":
             hide mr_al_neutral
             show mr_al_talk at custom_pos
             a "...hmm. Looks like you've got a malformed array there in the first line!"
             jump section1question1
-        "Answer 4":
+        "D":
             hide mr_al_neutral
             show mr_al_talk at custom_pos
             a "Alan Please add details."
