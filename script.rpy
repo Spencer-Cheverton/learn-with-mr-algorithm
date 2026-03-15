@@ -449,58 +449,58 @@ label section4:
         jump intermission4
 
 label section4question1:
-    a "Question 1"
+    a "Question 1: Which of the following sorting algorithms achieves O(n log(n)) complexity with perfect stability?"
     menu:
-        "Answer 1":
+        "Insertion":
             "That's not quite right!"
             jump section4question1
-        "Answer 2":
+        "Merge":
             "Impressive"
             $ section4 += 1
             jump section4
-        "Answer 3":
+        "Heap":
             "That's not quite right!"
             jump section4question1
-        "Answer 4":
+        "Quick":
             "That's not quite right!"
             jump section4question1
 
 label section4question2:
-    a "Question 2"
+    a "Question 2: Radix Sort is an example of what sorting algorithm?"
     menu:
-        "Answer 1":
+        "Merge":
             "That's not quite right!"
             jump section4question2
-        "Answer 2":
+        "Quick":
             "That's not quite right!"
             jump section4question2
-        "Answer 3":
+        "Non-Comparison":
             "Well done"
             $ section4 += 1
             jump section4
-        "Answer 4":
+        "Pigeonhole":
             "That's not quite right!"
             jump section4question2
 
 label section4question3:
-    a "Question 3"
+    a "Question 3: Which of these algorithms are unstable?"
     menu:
-        "Answer 1":
+        "Insertion":
             "That's not quite right!"
             jump section4question3
-        "Answer 2":
+        "Selection":
             "That's not quite right!"
             jump section4question3
-        "Answer 3":
+        "Radix":
             "Good job"
             $ section4 += 1
             jump section4
-        "Answer 4":
+        "Merge":
             "That's not quite right!"
             jump section4question3
 
 label section4question4:
-    a "Question 4"
+    a "Question 4: Which of these algorithms has best average-case time complexity for large n?"
     menu:
         "Answer 1":
             "That's not quite right!"
