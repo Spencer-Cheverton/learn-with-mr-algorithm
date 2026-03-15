@@ -75,23 +75,23 @@ label section1question1:
     show mr_al_neutral at small
 
     menu:
-        "Answer 1":
+        "A":
             hide mr_al_neutral
             show mr_al_talk at custom_pos
             a "That's right! Nice attention to detail."
             $ section1 += 1
             jump section1
-        "Answer 2":
+        "B":
             hide mr_al_neutral
             show mr_al_talk at custom_pos
             a "Not quite; remember that “sizeof” returns the number of bytes the object takes up."
             jump section1question1
-        "Answer 3":
+        "C":
             hide mr_al_neutral
             show mr_al_talk at custom_pos
             a "...hmm. Looks like you've got a malformed array there in the first line!"
             jump section1question1
-        "Answer 4":
+        "D":
             hide mr_al_neutral
             show mr_al_talk at custom_pos
             a "Alan Please add details."
@@ -307,23 +307,23 @@ label section3:
         jump intermission3
 
 label section3question1:
-    a "Question 1"
+    a "Question 1: How many nodes are in a full BST of height 'h'?"
     menu:
-        "Answer 1":
+        "log2(h)":
             a "That's not quite right!"
             jump section3question1
-        "Answer 2":
+        "2h+1":
             a "That's not quite right!"
             jump section3question1
-        "Answer 3":
+        "h^2":
             a "That's not quite right!"
             jump section3question1
-        "Answer 4":
+        "(2^h)-1":
             a "Well done"
             $ section3 += 1
             jump section3
 label section3question2:
-    a "Question 2"
+    a "Which of the following trees are AVL?"
     menu:
         "Answer 1":
             a "That's not quite right!"
@@ -340,9 +340,9 @@ label section3question2:
             jump section3question2
 
 label section3question3:
-    a "Question 3"
+    a "Question 3: What is the balance of this AVL tree?"
     $ Answer_3_3 = renpy.input("Input your answer here", length = 64)
-    if Answer_3_3 == "Skibidi":
+    if Answer_3_3 == "-1":
         a "Well done"
         $ section3 += 1
         jump section3
@@ -351,35 +351,36 @@ label section3question3:
         jump section3question3
 
 label section3question4:
-    a "Question 4"
+    a "Question 4: What is the time complexity of a B+ Tree Search?"
     menu:
-        "Answer 1":
+        "O(n)":
             a "That's not quite right!"
             jump section3question4
-        "Answer 2":
+        "O(n log (n)":
             a "Good job"
             $ section3 += 1
-        "Answer 3":
+        "O(n^2)":
             a "That's not quite right!"
             jump section3question4
-        "Answer 4":
+        "O(1)":
             a "That's not quite right!"
             jump section3question4
 
 label section3question5:
-    a "Question 5"
+    a "Question 5: Consider the following binary heaps:" # Show binary heaps
+    a "Which of the following is a correct merge of A and B?" # show options
     menu:
-        "Answer 1":
+        "A":
             a "You've done it"
             $ section3 += 1
             jump section3
-        "Answer 2":
+        "B":
             a "That's not quite right!"
             jump section3question5
-        "Answer 3":
+        "C":
             a "That's not quite right!"
             jump section3question5
-        "Answer 4":
+        "D":
             a "That's not quite right!"
             jump section3question5
 
