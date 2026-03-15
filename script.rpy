@@ -41,7 +41,7 @@ transform small:
 label start:
     if not renpy.loadable("images/mr_a.jpg"):
         $raise Exception("You have angered Mr Algorithm by destroying an effigy of his glorious visage.")
-    $renpy.sound.play("scruff.mp3", loop=True)
+
     $ homunculus = True
     $ lore_route = True
     $ knowledge_of_enemy = False
@@ -64,7 +64,14 @@ label start:
         a "...how"
         jump quit
 
+    $ Sound = ""
+    if Name == "hacker" or Name == "Hacker":
+        $ Sound = "lb2.mp3"
+    else:
+        $ Sound = "scruff.mp3"
+
     show mr_al_talk at custom_pos # mr algorithm appears
+    $renpy.sound.play(Sound, loop=True)
     a "Good day to you [Name]."
     a "Today we are going to learn all about Data Structures and Algorithms."
     a "Are you ready to learn?!"
@@ -981,27 +988,24 @@ label intermission5:
         if friendship>0:
             menu:
                 "I'm ready":
+                    jump paywall
                     hide mr_al_neutral
-                    a "Let us begin!"
-                    jump section5
+                    hide mr_al_neutral
+
                 "Why are you in a computer program?":
                     hide mr_al_neutral
                     jump intermission5lore
         else:
             menu:
                 "I'm ready":
-                    hide mr_al_neutral
-                    a "Let us begin!"
-                    jump section5
+                    jump paywall
                 "Lets say I believe you, why are you in a computer then?":
                     hide mr_al_neutral
                     jump intermission5lore
     else:
         menu:
             "I'm ready":
-                hide mr_al_neutral
-                a "Let us begin!"
-                jump section5
+                jump paywall
 
 label intermission5lore:
     if friendship == 2:
@@ -1014,12 +1018,16 @@ label intermission5lore:
                 $ knowledge_of_enemy = True
                 $ knowledge_of_recuperation = True
                 a "Thank you!"
+                jump paywall
+
             "Whatever.":
                 hide mr_al_neutral
                 $ friendship -= 1
                 $ knowledge_of_enemy = True
                 $ knowledge_of_recuperation = True
                 a "..."
+                jump paywall
+
     elif friendship == 1 or friendship == 0:
         a "I was recuperating here"
         show mr_al_neutral at custom_pos
@@ -1030,15 +1038,19 @@ label intermission5lore:
                 $ knowledge_of_enemy = False
                 $ knowledge_of_recuperation = True
                 a "Thank you!"
+                jump paywall
             "Whatever.":
                 hide mr_al_neutral
                 $ friendship -= 1
                 $ knowledge_of_enemy = False
                 $ knowledge_of_recuperation = True
                 a "..."
+                jump paywall
+
+
     else:
         a "Why do you even care?"
-        show mr_al_neutral at custom_pos
+        show mr_al_neutral at custom_pos zorder 100
         menu:
             "Because I want to get to know you better.":
                 hide mr_al_neutral
@@ -1046,11 +1058,18 @@ label intermission5lore:
                 $ knowledge_of_recuperation = False
                 $ knowledge_of_enemy = False
                 a "..."
+                jump paywall
             "Just wanted to see what you are programmed to say.":
                 hide mr_al_neutral
                 $ friendship -= 1
                 $ knowledge_of_recuperation = False
                 $ knowledge_of_enemy = False
                 a "..."
+                jump paywall
+
+label paywall:
+
+
+
 label quit:
     pass
