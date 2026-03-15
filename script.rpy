@@ -39,6 +39,7 @@ transform small:
     pos(0, 1070)
 
 label start:
+    $renpy.sound.play("scruff.mp3", loop=True)
     $ lore_route = True
     $ knowledge_of_enemy = False
     $ knowledge_of_recuperation = False
@@ -437,50 +438,64 @@ label section3question1:
         "(2^h)-1":
             hide mr_al_neutral
             show mr_al_talk at custom_pos
-            a "You're getting really good at this, [name]!"
+            a "You're getting really good at this, [Name]!"
             $ section3 += 1
             jump section3
 
 label section3question2:
+    show question_3_2
     show mr_al_talk at custom_pos
     a "Which of the following trees are AVL?"
     hide mr_al_talk
     hide mr_al_neutral
     show mr_al_neutral at small
+    hide question_3_2
+    show question_3_2_big
     menu:
         "A":
             hide mr_al_neutral
             show mr_al_talk at custom_pos
+            hide question_3_2_big
             a "Wrong! Check the balance of each tree."
+
             jump section3question2
         "B":
             hide mr_al_neutral
             show mr_al_talk at custom_pos
+            hide question_3_2_big
             a "Impressive!"
             $ section3 += 1
+
             jump section3
         "C":
             hide mr_al_neutral
             show mr_al_talk at custom_pos
+            hide question_3_2_big
             a "I'm afraid not. Check the balance of each tree."
+            hide question_3_2_big
             jump section3question2
         "D":
             hide mr_al_neutrals
             show mr_al_talk at custom_pos
+            hide question_3_2_big
             a "Regrettably, no. Check the balance of each tree."
+
             jump section3question2
 
 label section3question3:
+    show question_3_3
     show mr_al_talk at custom_pos
     a "Question 3: What is the balance of this AVL tree?"
     show mr_al_neutral at custom_pos
     $ Answer_3_3 = renpy.input("Input your answer here", length = 64)
     if Answer_3_3 == "-1":
+        hide question_3_3
         hide mr_al_neutral
         a "Well done"
         $ section3 += 1
         jump section3
     else:
+        hide question_3_3
         hide mr_al_neutral
         a "Give it another go!"
         jump section3question3
@@ -587,7 +602,10 @@ label intermission3lore:
             show mr_al_sad at custom_pos
             a "Oh... thanks for the feedback"
             $ friendship -= 1
+    hide mr_al_happy
+    hide mr_al_sad
     jump section4
+
 
 label section4:
     if section4 == 0:
@@ -614,22 +632,26 @@ label section4question1:
             hide mr_al_neutral
             show mr_al_talk at custom_pos
             a "Try again. Insertion sort runs in O(n^2) time."
+
             jump section4question1
         "Merge":
             hide mr_al_neutral
             show mr_al_talk at custom_pos
             a "There goes my Stable Sorting Sensei!"
+
             $ section4 += 1
             jump section4
         "Heap":
             hide mr_al_neutral
             show mr_al_talk at custom_pos
             a "Incorrect- heapsort is unstable."
+
             jump section4question1
         "Quick":
             hide mr_al_neutral
             show mr_al_talk at custom_pos
             a "Quicksort is not guaranteed stability."
+
             jump section4question1
 
 label section4question2:
@@ -783,12 +805,16 @@ label intermission4lore:
         menu:
             "That's awesome. I've never seen a computer program this advanced before":
                 hide mr_al_neutral
+                show mr_al_happy at custom_pos
                 a "I am a very advanced program!"
                 $ friendship += 1
             "I don't believe you. This must be a trick.":
+                show mr_al_sad at custom_pos
                 hide mr_al_neutral
                 a "Believe what you want, I guess."
                 $ friendship -= 1
+    hide mr_al_happy
+    hide mr_al_sad
     jump section5
 
 label section5:
@@ -810,7 +836,7 @@ label section5question1:
     a "Question 1: What graph does this adjacency matrix represent?"
     hide mr_al_neutral
     hide mr_al_talk
-    hide mr_al_neutral at small
+    show mr_al_neutral at small
     menu:
         "A":
             hide mr_al_neutral
@@ -905,7 +931,7 @@ label section5question5:
         "Tree":
             hide mr_al_neutral
             show mr_al_talk at custom_pos
-            a "Great work, [name]!"
+            a "Great work, [Name]!"
             $ section5 += 1
             jump section5
         "Edge":
