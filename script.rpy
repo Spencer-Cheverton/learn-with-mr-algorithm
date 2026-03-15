@@ -529,34 +529,30 @@ label section3question4:
             jump section3question4
 
 label section3question5:
+    show question_3_5
     show mr_al_talk at custom_pos
     a "Question 5: Consider the following binary heaps:" # Show binary heaps
     a "Which of the following is a correct merge of A and B?" # show options
     hide mr_al_talk
     hide mr_al_neutral
     show mr_al_neutral at small
+    hide question_3_5
+    show question_3_5_big
     menu:
         "A":
             hide mr_al_neutral
             show mr_al_talk at custom_pos
+            hide question_3_5_big
             a "You've done it"
             $ section3 += 1
             jump section3
         "B":
             hide mr_al_neutral
             show mr_al_talk at custom_pos
+            hide question_3_5_big
             a "No good. Look into the binary heap construction algorithm in the notes."
             jump section3question5
-        "C":
-            hide mr_al_neutral
-            show mr_al_talk at custom_pos
-            a "No good. Look into the binary heap construction algorithm in the notes."
-            jump section3question5
-        "D":
-            hide mr_al_neutral
-            show mr_al_talk at custom_pos
-            a "No good. Look into the binary heap construction algorithm in the notes."
-            jump section3question5
+
 
 label intermission3:
     show mr_al_talk at custom_pos
@@ -793,9 +789,11 @@ label intermission4lore:
         menu:
             "That's awesome! I've never seen a computer program this advanced before":
                 hide mr_al_neutral
+                show mr_al_happy at custom_pos
                 a "I am a very advanced program!"
                 $ friendship += 1
             "I don't believe you. This must be a trick.":
+                show mr_al_sad at custom_pos
                 hide mr_al_neutral
                 a "Believe what you want, I guess."
                 $ friendship -= 1
@@ -832,35 +830,43 @@ label section5:
         jump intermission5
 
 label section5question1:
+    show question_5_1
     show mr_al_talk at custom_pos
     a "Question 1: What graph does this adjacency matrix represent?"
     hide mr_al_neutral
     hide mr_al_talk
     show mr_al_neutral at small
+    hide question_5_1
+    show question_5_1_big
     menu:
         "A":
             hide mr_al_neutral
             show mr_al_talk at custom_pos
+            hide question_5_1_big
             a "That can't be right. Node 0 is not adjacent to node 2 in the matrix."
             jump section5question1
         "B":
             hide mr_al_neutral
             show mr_al_talk at custom_pos
+            hide question_5_1_big
             a "Hooray!"
             $ section5 += 1
             jump section5
         "C":
             hide mr_al_neutral
             show mr_al_talk at custom_pos
+            hide question_5_1_big
             a "That can't be right. Node 0 is not adjacent to node 2 in the matrix."
             jump section5question1
         "D":
             hide mr_al_neutral
             show mr_al_talk at custom_pos
+            hide question_5_1_big
             a "Give it another shot. Node 0 is not adjacent to node 2 in the matrix."
             jump section5question1
 
 label section5question2:
+    show question_5_2
     show mr_al_talk at custom_pos
     a "Question 2: Consider the following graph:"# show nightmare graph
     a "Using Djikstra's Algorithm, what is length of the shortest path from A to F?"
@@ -868,15 +874,18 @@ label section5question2:
     $ Answer_5_2 = renpy.input("Input your answer here", length = 64)
     if Answer_5_2 == "7":
         hide mr_al_neutral
+        hide question_5_2
         a "I fear you may be goated."
         $ section5 += 1
         jump section5
     else:
         hide mr_al_neutral
+        hide questino_5_2
         a "How about another go?"
         jump section5question2
 
 label section5question3:
+    show question_5_3
     show mr_al_talk at custom_pos
     a "Question 3: Consider the following graph:" # show other graph#
     a "Using Jarnik-Prim, what is the weight of the minimal spanning tree of this graph?"
@@ -884,11 +893,13 @@ label section5question3:
     $ Answer_5_3 = renpy.input("Input your answer here", length = 64)
     if Answer_5_3 == "17":
         hide mr_al_neutral
+        hide question_5_3
         a "Yes, that's right!"
         $ section5 += 1
         jump section5
     else:
         hide mr_al_neutral
+        hide question_5_3
         a "Try again."
         jump section5question3
 

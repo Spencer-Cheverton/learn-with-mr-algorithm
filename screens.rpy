@@ -277,12 +277,6 @@ screen navigation():
             idle "quit.png"
             action Quit()
 
-        imagebutton:
-            xpos 35
-            idle "back.png"
-            action Quit()
-
-
 
     vbox xpos 30 ypos 100:
         imagebutton:
@@ -293,6 +287,7 @@ screen navigation():
         imagebutton:
             ypos 70
             idle "folder icon.png"
+            action [Play("sound", "erro.mp3")]
 
 
 
@@ -308,6 +303,7 @@ style navigation_button_text:
 
 screen game():
     zorder 100
+
     #style_prefix "navigation"
     hbox xpos 0 ypos 2042:
 
@@ -328,6 +324,7 @@ screen game():
         imagebutton:
             xpos 35
             idle "back.png"
+
             action [ShowMenu("main_menu")]
 init python:
     config.overlay_screens.append("game")
