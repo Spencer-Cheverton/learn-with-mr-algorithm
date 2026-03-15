@@ -518,9 +518,9 @@ label section4question4:
 
 
 label section4question5:
-    a "Question 5"
+    a "Question 5: Consider the following list: [1,45,876,3,192,23,58]. When implementing quicksort, what would be the value of the most efficient pivot in the first step?"
     $ Answer_4_5 = renpy.input("Input your answer here", length = 64)
-    if Answer_4_5 == "Skibidi":
+    if Answer_4_5 == "3":
         a "Well done"
         $ section4 += 1
         jump section4
