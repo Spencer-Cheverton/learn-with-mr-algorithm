@@ -64,11 +64,11 @@ label start:
         a "...how"
         jump quit
 
-    $ Sound = ""
-    if Name == "hacker" or Name == "Hacker":
-        $ Sound = "lb2.mp3"
-    else:
-        $ Sound = "scruff.mp3"
+    #$ Sound = ""
+    #if Name == "hacker" or Name == "Hacker":
+        #$ Sound = "lb2.mp3"
+    #else:
+        #$ Sound = "scruff.mp3"
 
     show mr_al_talk at custom_pos # mr algorithm appears
     $renpy.sound.play(Sound, loop=True)
